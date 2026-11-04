@@ -1,7 +1,6 @@
 # Mehrere Modelle: das billige Modell darf falsch sein – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-mehrere-modelle-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-mehrere-modelle-demo.streamlit.app/)**
 
 Viertes Stück der Linie **„Monte-Carlo-Schätzung und Varianzreduktion“** in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“ (die Linie wird erst vollständig veröffentlicht). Nachfolger von [kontrollvariaten-demo](https://github.com/sebastian-hanisch/kontrollvariaten-demo) (Stück 3, Größe mit **bekanntem** Erwartungswert) und [gekoppelte-ziehungen-demo](https://github.com/sebastian-hanisch/gekoppelte-ziehungen-demo) (Stück 2, gemeinsame Zufallszahlen). Hier hebt das Stück genau eine Annahme auf: Der Erwartungswert der Hilfsgröße ist **unbekannt**, die Hilfsgröße ist ein **billiges Modell**, das das Ziel nur grob trifft und verzerrt sein darf. Vehikel ist wie in Stück 1 bis 3 die Zuverlässigkeit eines Gitternetzes, jetzt mit dem strengeren Ziel „**brückenlos** zusammenhängend“, und die Wahrheit ist exakt aufgezählt.
 
@@ -121,4 +120,4 @@ Gebaut mit Streamlit, Plotly, NumPy und fpdf2.
 
 ---
 
-Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zu den Demos: [Interaktive Demos](https://sebastianhanisch.net/demos.html).
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Monte-Carlo-Schätzung: vom Schätzer zur Wahl](https://sebastianhanisch.net/konzepte-monte-carlo.html).
