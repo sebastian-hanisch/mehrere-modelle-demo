@@ -175,7 +175,7 @@ def verdict_budget(exp: dict) -> tuple[str, str]:
     rows = exp["rows"]
     if not rows:
         return "info", "Mit dieser Modellwahl gibt es nichts zu messen."
-    noise = 100 / np.sqrt(C.SWEEP_REPS / 2)
+    noise = 200 / np.sqrt(C.SWEEP_REPS - 1)
     return "info", (f"Die Formel gibt bei bester Aufteilung den Faktor {de(exp['factor_chain'], 3)}. Gemessen (exaktes α) liegt das Varianzverhältnis zwischen {de(min(r['ratio_mf'] for r in rows), 2)} und "
                     f"{de(max(r['ratio_mf'] for r in rows), 2)}, mit aus der Stichprobe geschätztem α zwischen {de(min(r['ratio_plug'] for r in rows), 2)} und {de(max(r['ratio_plug'] for r in rows), 2)}. "
                     f"Das Rauschen der Verhältnisse beträgt bei {C.SWEEP_REPS} Wiederholungen rund {de(noise, 0)} %.")

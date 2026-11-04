@@ -11,7 +11,7 @@ Zufall kommt nur über einen übergebenen Strom, nie aus einem globalen Generato
 
 Schätzer (ein billiges Modell f1, Ziel f0; N1 >= N0; f1 auf allen N1 Eingaben, f0 auf den ersten N0):
     s = mean_{N0} f0 + alpha (mean_{N1} f1 - mean_{N0} f1),   alpha = rho sigma0 / sigma1.
-Er ist für jedes alpha erwartungstreu, auch wenn f1 verzerrt ist.
+Er ist für jedes feste alpha erwartungstreu, auch wenn f1 verzerrt ist.
 """
 
 from __future__ import annotations

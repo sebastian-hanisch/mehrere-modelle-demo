@@ -21,7 +21,7 @@ P_MIN, P_MAX, DEFAULT_P = 0.50, 0.99, 0.90
 BUDGET_CHOICES = (30, 100, 300, 1000)     # Budget in Einheiten einer teuren Auswertung
 BUDGET_MIN, BUDGET_MAX, DEFAULT_BUDGET = BUDGET_CHOICES[0], BUDGET_CHOICES[-1], 100
 SEED_MAX, DEFAULT_SEED = 999999, 35
-REPS = 300                                # Wiederholungen je Schätzung (feste Ströme); Rauschen der Varianzverhältnisse rund 1/sqrt(REPS/2) ≈ 8 %
+REPS = 300                                # Wiederholungen je Schätzung (feste Ströme); Rauschen der Varianzverhältnisse rund 2/sqrt(REPS − 1) ≈ 12 %
 RATIO_MAX = 1000.0                        # Obergrenze für N_i / N_0 (bei Korrelation nahe 1 wächst das Optimum über alle Grenzen)
 
 # Experimente
@@ -57,6 +57,6 @@ PRESETS = {
 PRESET_HELP = {
     "Standardfall (Voreinstellung)": "Gitter 3×4, jede Kante hält mit 90 %, Budget von 100 teuren Auswertungen, billiges Modell „Grad ≥ 2“: ein deutlicher Gewinn.",
     "Die naheliegende Wahl": "Als billiges Modell der Zusammenhang, das Ziel der vorigen Stücke: er hängt kaum mit dem Ziel zusammen und schadet.",
-    "Schlaues Ziel, kaum Gewinn": "Das teure Ziel wird mit einer Brückensuche in einem Lauf gerechnet: es ist nur noch halb so teuer wie das billige Modell zu haben, der Gewinn schrumpft.",
+    "Schlaues Ziel, kaum Gewinn": "Das teure Ziel wird mit einer Brückensuche in einem Lauf gerechnet: das billige Modell kostet nun etwa halb so viel wie das Ziel (r = 0,51 statt 0,05), der Gewinn schrumpft.",
     "Zwei billige Modelle": "Bei seltenem Ausfall (p = 0,99) hilft ein zweites, noch billigeres Modell zusätzlich.",
 }

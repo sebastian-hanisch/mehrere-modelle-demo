@@ -88,7 +88,7 @@ with st.container(key="kopf"):
 st.markdown(
     """
 Ein teures Verfahren (hier: ist das Netz **brückenlos** zusammenhängend, also auch nach Ausfall einer weiteren Kante?) lässt sich durch **billige Modelle** ergänzen, die dasselbe Ziel nur grob treffen.
-Man rechnet das billige Modell auf **vielen** Eingaben, das teure auf **wenigen**, und korrigiert das billige Mittel um die Differenz auf den gemeinsamen Eingaben. Der Schätzer bleibt für **jedes** billige Modell erwartungstreu, auch wenn es verzerrt ist.
+Man rechnet das billige Modell auf **vielen** Eingaben, das teure auf **wenigen**, und korrigiert das billige Mittel um die Differenz auf den gemeinsamen Eingaben. Der Schätzer bleibt bei festem α für jedes billige Modell erwartungstreu, auch wenn es verzerrt ist; ein aus denselben Ziehungen geschätztes α macht ihn nur näherungsweise erwartungstreu.
 Der Gewinn hängt an **zwei** Größen: der Korrelation ρ mit dem Ziel **und** dem Kostenverhältnis r. Der Varianzfaktor ist **(√(1−ρ²) + ρ√r)²**, und ein Modell, das nicht billig genug ist, schadet.
 
 Weiter unten: **🔬 sechs Experimente**, **🧪 Spielwiese**, **🚧 Wo die Annahmen enden** und die Expander **⚠️ Annahmen, Grenzen und bekannte Probleme** und **📐 Mathematische Formulierung**.
@@ -139,7 +139,7 @@ st.markdown("## 🎯 Ergebnis")
 m1, m2, m3, m4 = st.columns(4)
 m1.metric("Wahrheit E X2", de(a.truth, 4), help=f"Exakte Wahrscheinlichkeit, dass das {a.netz.name} bei p = {de(settings.p, 2)} brückenlos zusammenhängt (Aufzählung aller Kantenmengen).")
 m2.metric("Faktor nach der Formel", de(a.factor_chain, 3) if a.names else "–", help="Varianz des Mehrmodell-Schätzers gegen den einfachen Mittelwert gleichen Budgets bei bester Aufteilung: (√(1−ρ²) + ρ√r)² für ein Modell.")
-m3.metric("Gemessen (α exakt)", de(a.ratio_mf, 2) if a.names else "–", help=f"Varianzverhältnis aus {C.REPS} Wiederholungen mit festen Strömen und dem exakten α. Rauschen etwa 8 %.")
+m3.metric("Gemessen (α exakt)", de(a.ratio_mf, 2) if a.names else "–", help=f"Varianzverhältnis aus {C.REPS} Wiederholungen mit festen Strömen und dem exakten α. Rauschen etwa 10 bis 16 %.")
 m4.metric("Gemessen (α geschätzt)", de(a.ratio_plug, 2) if a.names else "–", help="Dasselbe mit α aus den ersten N₀ Eingaben der Stichprobe.")
 if a.names:
     st.caption("Korrelation mit dem Ziel und Kostenverhältnis: " + "; ".join(f"{C.MODEL_LABELS[nm]}: ρ = {de(a.rho[nm], 3)}, r = {de(a.r[nm], 3)}, Schwelle r* = {de(a.r_star[nm], 3)}" for nm in a.names)
@@ -295,7 +295,7 @@ with st.expander("⚠️ Annahmen, Grenzen und bekannte Probleme"):
 
 **Grenzen.** Aufgezählt wird live bis 17 Kanten. Kosten sind **gezählte Kantenzugriffe** einer Tiefensuche, keine Rechenzeiten; auf einem anderen Rechner und in einer anderen Sprache ändert sich das Verhältnis. Es gibt drei billige Modelle und Ketten aus höchstens zwei; ein Nutzer kann keine eigenen Modelle eintragen. Die Aufteilung der Formel ist für ganze Stichproben gerundet.
 
-**Bekannte Probleme und Unsicherheiten.** Varianzverhältnisse aus 150 bis 400 Wiederholungen rauschen um rund 6 bis 10 %, bei seltenem Ausfall (p = 0,99) deutlich mehr. Bei kleinem p (etwa 0,5) bricht die Prüfung des Ziels meist früh ab und das billige Modell ist kaum billiger. Die Literaturangaben im Mathematik-Expander stammen aus dem Gedächtnis und sind nicht eingesehen. Die Oberfläche ist mit AppTest geprüft und im Browser angesehen, nicht mit echtem Mausklick auf jedem Gerät.
+**Bekannte Probleme und Unsicherheiten.** Varianzverhältnisse aus 150 bis 400 Wiederholungen rauschen um rund 10 bis 16 %, bei seltenem Ausfall (p = 0,99) deutlich mehr. Bei kleinem p (etwa 0,5) bricht die Prüfung des Ziels meist früh ab und das billige Modell ist kaum billiger. Die Literaturangaben im Mathematik-Expander stammen aus dem Gedächtnis und sind nicht eingesehen. Die Oberfläche ist mit AppTest geprüft und im Browser angesehen, nicht mit echtem Mausklick auf jedem Gerät.
         """
     )
 

@@ -56,7 +56,7 @@ def test_verdikt_nennt_das_verfahren_des_ziels():
 def test_budget_verdikt_zahlen():
     exp = {"rows": [{"budget": 30, "ratio_mf": 0.2, "ratio_plug": 0.25}, {"budget": 100, "ratio_mf": 0.15, "ratio_plug": 0.17}], "factor_chain": 0.163}
     kind, text = ev.verdict_budget(exp)
-    assert kind == "info" and "0,163" in text and "zwischen 0,15 und 0,20" in text and "zwischen 0,17 und 0,25" in text and "rund 8 %" in text
+    assert kind == "info" and "0,163" in text and "zwischen 0,15 und 0,20" in text and "zwischen 0,17 und 0,25" in text and "rund 12 %" in text
 
 
 def test_aufteilungs_verdikt_zahlen():
